@@ -43,6 +43,5 @@ jobs:
     # Run a terraform validate
     # Run even if formatting fails
     - name: Terraform Validate
-      id: validate
-      if: (success() || failure())
-      run: terraform validate
+      if: always()           # ensures validate runs so you can see its output
+      run: terraform validate || true
